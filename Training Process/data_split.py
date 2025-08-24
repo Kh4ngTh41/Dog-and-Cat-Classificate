@@ -2,20 +2,20 @@ import os
 import shutil
 import random
 
-# Đường dẫn dataset gốc
+# Data Path
 data_dir = "PetImages"
 output_dir = "PetImages_split"
 
-# Tỉ lệ chia
+# Split ratio
 train_ratio = 0.7
-val_ratio   = 0.15  # test_ratio = 0.15 còn lại
+val_ratio   = 0.15  # test_ratio = 0.15 
 
 # Tạo thư mục output
 for split in ["train", "val", "test"]:
     for cls in ["Cat", "Dog"]:
         os.makedirs(os.path.join(output_dir, split, cls), exist_ok=True)
 
-# Hàm chia dữ liệu
+# Split data
 def split_data(class_name):
     src_dir = os.path.join(data_dir, class_name)
     images = os.listdir(src_dir)
@@ -29,7 +29,7 @@ def split_data(class_name):
     val_files   = images[n_train:n_train+n_val]
     test_files  = images[n_train+n_val:]
 
-    # Copy ảnh vào thư mục mới
+    # Copy images to new folder
     for f in train_files:
         shutil.copy(os.path.join(src_dir, f), os.path.join(output_dir, "train", class_name, f))
     for f in val_files:
@@ -37,8 +37,8 @@ def split_data(class_name):
     for f in test_files:
         shutil.copy(os.path.join(src_dir, f), os.path.join(output_dir, "test", class_name, f))
 
-# Chia cho cat và dog
+# Cat and Dog split
 split_data("Cat")
 split_data("Dog")
 
-print("Done! Dataset đã được chia vào thư mục:", output_dir)
+print("Done! Dataset:", output_dir)
