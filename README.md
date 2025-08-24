@@ -2,8 +2,8 @@
 
 ## My Folder Struct
 
-Submit: my final submit - you can evaluate 
-Training Process: my training process
+- Submit: my final submit - you can evaluate 
+- Training Process: my training process
 
 ## Required Libraries
 
@@ -50,4 +50,4 @@ pip install torch torchvision scikit-learn numpy matplotlib pillow
 - PetImages_split/: Dataset folder
 
 # Contact
-Contact me if you need assistant 
+Contact me if you need assist
